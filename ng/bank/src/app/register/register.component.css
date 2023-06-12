@@ -1,0 +1,23 @@
+
+
+.main {
+    height: 470px;
+    display: flex;
+
+    align-items: center;
+}
+
+.reg-box {
+    width: 450px;
+    background-color: rgba(0, 0, 0, 0.354); 
+    color: white;
+    transition: 0.5s ease-in-out;
+    
+}
+.reg-box:hover{
+    transform: scale(1.03);
+}
+input{
+    border-radius: 0;
+    height: 30px;
+}

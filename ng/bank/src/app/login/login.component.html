@@ -1,0 +1,21 @@
+<h2 class="text-center mt-3">ONLINE BANKING</h2>
+<div class="main text-center">
+
+    <form [formGroup]="loginForm" class="login-box pb-4">
+        <h3 class="pt-3">Login</h3>
+        <input formControlName='acno' name="acno" type="text" class=" mt-4" placeholder="AC/NO">
+        <p *ngIf="(this.loginForm.get('acno')?.errors)&&(this.loginForm.get('acno')?.touched)" class="text-danger ">must
+            contain numbers only</p>
+        <input formControlName='psw' name="psw" type="password" class=" mt-4 mb-3" placeholder="Password">
+        <p *ngIf="(this.loginForm.get('psw')?.errors)&&(this.loginForm.get('psw')?.touched)" class="text-danger">must
+            contain numbers and charactors only</p>
+            
+        <a href="">Forgotten password?</a><br>
+        <button (click)="login()" class="btn btn w-50 mt-4 text-white">login</button><br><br>
+        <span>not registered ?</span><a routerLink="register"> Create an account</a>
+
+    </form>
+
+
+</div>
+<p class="text-center mt-3">copyright @online banking 2023</p>

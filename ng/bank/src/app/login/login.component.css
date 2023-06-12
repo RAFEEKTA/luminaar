@@ -1,0 +1,30 @@
+h2 {
+    color: #180a4c; 
+}
+
+.main{
+display: flex;
+justify-content: end;
+align-items: center;
+/* margin: 0 15px ; */
+height: 470PX;
+ border-radius: 50PX;
+}
+.login-box {
+    width: 450px;
+    background-color: rgba(0, 0, 0, 0.354);
+    margin-right: 100PX;
+    border-radius: 15px;
+    color: white;
+    transition: 0.5s ease-in-out;
+}
+.btn {
+    background-color: rgb(58, 134, 63);
+    height: 40px;
+}
+.btn:hover {
+    background-color: rgba(58, 134, 63, 0.774);
+}
+.login-box:hover {
+    transform: scale(1.03);
+}

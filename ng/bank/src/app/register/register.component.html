@@ -1,0 +1,21 @@
+<h2 class="text-center mt-3">Sign Up Page</h2>
+<div class="main text-center">
+     <form [formGroup]="registerForm" (ngSubmit)="register()" class="reg-box container ">
+
+          <h4 class="mt-2">Sign Up</h4>
+          <input formControlName='acno' name="acno" type="text" class="mt-2" placeholder="account number">
+          <p *ngIf="(this.registerForm.get('acno')?.errors)&&(this.registerForm.get('acno')?.touched)"
+               class="text-danger">must contain numbers only</p>
+          <input formControlName='uname' name="uname" type="text" class="mt-4" placeholder="username">
+          <p *ngIf="(this.registerForm.get('uname')?.errors)&&(this.registerForm.get('uname')?.touched)"
+               class="text-danger">must contain charactors only</p>
+          <input formControlName='psw' id="psw" name="psw" type="password" class="mt-4" placeholder="password"><br>
+          <p *ngIf="(this.registerForm.get('psw')?.errors)&&(this.registerForm.get('psw')?.touched)"
+               class="text-danger">must contain numbers and charactors only</p>
+          <input formControlName='cpsw' id="cpsw" name="cpsw" type="password" class="mt-4"
+               placeholder="confirm password"><br>
+          <p *ngIf="pswCheck" class="text-danger">password does not match</p>
+          <button class="btn btn-info mt-4 mb-4" type="submit">signup</button>
+
+     </form>
+</div>

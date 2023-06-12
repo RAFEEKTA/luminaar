@@ -1,0 +1,39 @@
+/* You can add global styles to this file, and also import other style f
+body{
+    font-family: 'Braah One', sans-serif;
+}iles */
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@700&family=Merriweather&display=swap');
+
+* {
+  font-family: 'Merriweather', serif;
+    margin: 0;
+    padding: 0;
+
+}
+body{
+    background: linear-gradient(to top right,  red 60%, yellow 57%);
+  height: 100vh;
+}
+.main {
+    background-image: url('../src/assets/rupee-symbol-digital-technology-background_1017-36810.avif');
+    background-size: cover;
+
+
+}
+
+h2,h1{
+    font-family: 'Libre Baskerville', serif;
+}
+
+input {
+    height: 40px;
+    width: 90%;
+    font-size: 18px;
+    border: none;
+    border-radius: 15px;
+    background-color: rgb(174, 178, 182);
+    padding-left: 15px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+

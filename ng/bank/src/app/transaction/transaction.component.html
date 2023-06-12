@@ -1,0 +1,36 @@
+<div class="text-center pt-2 ">
+    <h2>transactions</h2>
+
+    <hr>
+    <h6>name:{{user}}</h6>
+    <h6>account number:{{acno}}</h6>
+    <h6>date:{{date |date:'medium'}}</h6>
+
+</div>
+<hr>
+<div class="text-end pe-4">
+    <button type="submit" (click)="filterTrance('')" class="btn btn-info">All transaction</button>
+    <button type="submit" (click)="filterTrance('debit')" class="btn btn-success me-3">debit</button>
+    <button type="submit" (click)="filterTrance('credit')" class="btn btn-danger me-3">Credit</button>
+</div>
+<table class="table">
+    <thead>
+        <tr>
+            <th>index</th>
+            <th scope="col">type</th>
+            <th scope="col">amount</th>
+            <th scope="col">date</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let i of transaction |filter:serchString:'type'; let n=index">
+            <td>{{n+1}}</td>
+            <td>{{i.type}}</td>
+            <td>{{i.amount}}</td>
+            <td>{{i.date}}</td>
+        </tr>
+
+    </tbody>
+</table>
+<button (click)="exportpdf()" class="btn btn-dark mb-5 mt-3 m-auto "> download pdf</button>

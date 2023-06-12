@@ -1,0 +1,106 @@
+<div class="text-center">
+     <h2 class="">welcome {{user}}</h2>
+     <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+          Molestias molestiae voluptas voluptatem enim a deleniti
+          eveniet ex laboriosam eligendi explicabo quod ab,
+          excepturi fuga eum tempora tempore esse ipsum nihil..</p>
+
+     <br>
+
+
+     <!-- //Balance enquary -->
+
+     <button (click)="getbalance()" class="btn btn-primary mt-3 w-25" type="button" data-bs-toggle="offcanvas"
+          data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+          Balance enquairy
+     </button>
+     <br>
+     <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+          <div class="offcanvas-header">
+               <h5 class="offcanvas-title" id="offcanvasExampleLabel">Hai {{user}}</h5>
+               <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+               <div>
+                    <p>your cuurent account balance is <br>
+                         <strong> {{balance}} Rs </strong>
+                    </p>
+               </div>
+
+          </div>
+     </div>
+
+     <!--//account details-->
+
+     <button (click)="getUser()" type="button" class="btn btn-primary mt-3 w-25 " data-bs-toggle="modal"
+          data-bs-target="#exampleModal">
+          viw account details </button>
+     <br>
+     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered">
+               <div class="modal-content">
+                    <div class="modal-header">
+                         <h1 class="modal-title fs-5" id="exampleModalLabel">Account Details</h1>
+                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                         <h5>NAME :{{name}}</h5>
+                         <h5>AC/NO :{{acno}}</h5>
+
+                    </div>
+
+               </div>
+          </div>
+     </div>
+
+
+     <!-- send mony-->
+     <button type="button" class="btn btn-primary mt-3 w-25 " data-bs-toggle="modal" data-bs-target="#exampleModal1">
+          send money </button>
+
+     <br>
+     <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered">
+               <div class="modal-content">
+                    <div class="modal-header">
+                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                         <form (ngSubmit)="fundTransfer()" [formGroup]='moneyTransferForm' action="">
+                              <input formControlName="toAcno" type="text" class="form-control w-75 mt-3 m-auto" id="f1"
+                                   name="toacno" placeholder="To account number">
+                              <p *ngIf="(this.moneyTransferForm.get('toAcno')?.errors)&&(this.moneyTransferForm.get('toAcno')?.touched)"
+                                   class="text-danger ">must contain numbers only</p>
+                              <input formControlName="amount" type="text" class="form-control w-75 mt-3 m-auto" id="f2"
+                                   name="amnt" placeholder="Amount">
+                              <p *ngIf="(this.moneyTransferForm.get('amount')?.errors)&&(this.moneyTransferForm.get('amount')?.touched)"
+                                   class="text-danger ">must contain numbers only</p>
+                              <input formControlName="psw" type="password" class="form-control w-75 mt-3 m-auto" id="f3"
+                                   name="psw" placeholder="Password">
+                              <p *ngIf="(this.moneyTransferForm.get('psw')?.errors)&&(this.moneyTransferForm.get('psw')?.touched)"
+                                   class="text-danger ">must contain numbers & charactors only</p>
+                              <div [ngClass]="tstatus?'s1':'s2'">{{transactionStatus}}</div>
+
+                              <button type="submit" class="btn btn-danger mt-5 ms-auto">send</button>
+                         </form>
+
+
+
+                    </div>
+
+               </div>
+          </div>
+     </div>
+
+     <a href="./transaction">
+          <button (click)="getUser()" type="button" class="btn btn-primary mt-3 w-25 " data-bs-toggle="modal"
+               data-bs-target="#exampleModal">
+               transactions history </button>
+     </a>
+     <br>
+     <button type="button" class="btn btn-danger mt-4 w-25 " (click)="deleteClick()">
+          Delete </button>
+     <app-delete [childAcno]="acno" (onCancel)="noDelete()" (onDelete)="yesDelete($event)"></app-delete>
+     <br>
+     <button (click)="logout()" class="btn btn-danger mt-4">Logout</button>
+</div>
